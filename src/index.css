@@ -84,6 +84,12 @@ html {
 .content{
   grid-row: 2 / 3;
   grid-column:  2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-block{
   background-color: var(--color-tiles);
   box-shadow: 0 0 5px 0 var(--color-shadow);
   border-radius: 1rem;
