@@ -1,7 +1,8 @@
 :root{
-  /* ЦВЕТА */
+  /* Цвета */
   --color-primary: #17202b;
   --color-secondary: #ffffff;
+  --color-tiles: #bcbcbcbc; 
   --color-shadow: #000000aa;
   
   /* Переходы */
@@ -21,4 +22,81 @@ html {
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Основные элементы */
+.wrap{
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(3rem, 1fr) minmax(300px, 1300px) minmax(3rem, 1fr);
+  grid-template-rows: 100px 1fr 50px;
+  gap: 1rem;
+}
+
+.header{
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  display: inherit;
+  grid-template-columns: inherit;
+  height: 100px;
+  color: var(--color-secondary);
+  background: var(--color-primary);
+  box-shadow: 0 0 5px 0 var(--color-shadow);
+}
+
+.header-content{
+  grid-column: 2 / 3;
+  display: inherit;
+  grid-template-columns: 1fr 220px;
+  grid-template-rows: 40px 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.header-logo{
+  width: 80px;
+  height: 80px;
+  grid-row: 1 / -1;
+}
+
+.header-nav{
+   grid-column: 2 / -1;
+   grid-row: 1 / -1;
+   display: flex;
+   justify-content: space-between;
+}
+
+.header-nav > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--color-secondary);
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.header-nav > a:hover{
+  transform: translateY(-2px);
+  transition: var(--transition-hover);
+}
+
+.content{
+  grid-row: 2 / 3;
+  grid-column:  2 / 3;
+  background-color: var(--color-tiles);
+  box-shadow: 0 0 5px 0 var(--color-shadow);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+footer{
+  grid-row: 3 / -1;
+  grid-column: 1 / -1;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0 0 5px 0 var(--color-shadow);
 }
