@@ -30,8 +30,8 @@ html {
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(2rem, 1fr) minmax(300px, 1300px) minmax(2rem, 1fr);
-  grid-template-rows: 100px 1fr 50px;
+  grid-template-columns: minmax(1rem, 1fr) minmax(300px, 1300px) minmax(1rem, 1fr);
+  grid-template-rows: minmax(100px, auto) 1fr minmax(50px, auto);
   gap: 1rem;
 }
 
@@ -40,7 +40,7 @@ html {
   grid-row: 1 / 2;
   display: inherit;
   grid-template-columns: inherit;
-  height: 100px;
+  gap: inherit;
   color: var(--color-secondary);
   background: var(--color-primary);
   box-shadow: 0 0 5px 0 var(--color-shadow);
@@ -105,7 +105,9 @@ footer{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 1rem;
   box-shadow: 0 0 5px 0 var(--color-shadow);
+  padding: 0 2rem;
 }
 
 /* Панель поиска и выборки */
