@@ -1,11 +1,10 @@
 import MovieSelect from "./MovieSelect";
+import MovieList from "./MovieList";
 
 export default function MoviesContent() {
 
     return <div className="content">
         <MovieSelect />
-        <div className="content-block">
-            <h2>Placeholder for display section</h2>
-        </div>
+        <MovieList />
     </div>
 }
