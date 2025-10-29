@@ -7,17 +7,22 @@ export const moviesContext =  createContext();
 // Начальные значения 
 const movieCatalogInitValue = {
     selectorOpened: true,
+    data: [],
 }
 
 // Обёртка для контекста
 export default function Context ({children}){
 
-    // Состояния приложения, созданные через редьюсер
+    // Инициализация редьюсера
     const [appValue, dispatcher] = useReducer(mainReducer, movieCatalogInitValue);
 
-    // Функции, созданные через редьюсер
+    // Добавление функций для работы с состояниями в редьюсер
     appValue.toggleSelectMovies = () => {
         dispatcher({type: "TOGGLE_SELECT_MOVIES"});
+    }
+
+    appValue.setMovieData = data => {
+        dispatcher({type: "SET_MOVIE_DATA", payload: data});
     }
 
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 
