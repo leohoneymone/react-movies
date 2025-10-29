@@ -1,6 +1,7 @@
 :root{
   /* Цвета */
   --color-primary: #17202b;
+  --color-text: #ffffff;
   --color-secondary: #ffffff;
   --color-tiles: #bcbcbcbc;
   --color-border: #888;
@@ -41,7 +42,7 @@ html {
   display: inherit;
   grid-template-columns: inherit;
   gap: inherit;
-  color: var(--color-secondary);
+  color: var(--color-text);
   background: var(--color-primary);
   box-shadow: 0 0 5px 0 var(--color-shadow);
 }
@@ -72,7 +73,7 @@ html {
 .header-nav > a {
   text-decoration: none;
   font-weight: bold;
-  color: var(--color-secondary);
+  color: var(--color-text);
   cursor: pointer;
   transition: var(--transition-hover);
 }
@@ -101,7 +102,7 @@ footer{
   grid-row: 3 / -1;
   grid-column: 1 / -1;
   background: var(--color-primary);
-  color: var(--color-secondary);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -113,7 +114,23 @@ footer{
 /* Панель поиска и выборки */
 .content-block > h3 {
   font-size: 1.25rem;
-  padding-bottom: 1rem;
+}
+
+.select-content-block{
+  position: relative;
+}
+
+.toggle-select-btn{
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 25px;
+  height: 25px;
+  border-radius: 0.3rem;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition-hover);
 }
 
 .select-block {
@@ -121,6 +138,7 @@ footer{
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .select-form{
@@ -146,7 +164,7 @@ footer{
   transition: var(--transition-hover);
 }
 
-.select-button:hover{
+.select-button:hover, .toggle-select-btn:hover{
   transform: translateY(-2px);
   background: var(--color-primary);
   color: var(--color-secondary);
