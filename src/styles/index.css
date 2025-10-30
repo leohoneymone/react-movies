@@ -187,9 +187,26 @@ footer{
 
 .placeholder-icon{
   font-size: 7rem;
+  vertical-align: middle;
+  text-align: center;
+  width: 150px;
+  height: 150px;
 }
 
 .loading-and-placeholder-block > p {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.loading-animated{
+  animation: loading-placeholder-spin 1s ease-in-out infinite; 
+}
+
+@keyframes loading-placeholder-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
