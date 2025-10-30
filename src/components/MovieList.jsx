@@ -1,8 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { moviesContext } from "../utils/context";
 
 const APIKEY = process.env.REACT_APP_APIKEY;
-
 
 // Начальный плейсхолдер 
 function InitPlaceholder() {
@@ -21,33 +20,60 @@ function LoadingPlaceholder() {
 }
 
 // Плейсхолдер для пустого вывода фильмов
-function NotFoundPlaceholder() {
+function NotFoundPlaceholder({name}) {
     return <div className="loading-and-placeholder-block">
         <span className="placeholder-icon">🗿</span>
-        <p>Oops... Nothing found</p>
+        <p>Nothing found by "{name}" request</p>
     </div>
 }
 
 export default function MovieList() {
     // Состояния 
-    const {data, setMovieData} = useContext(moviesContext);
+    const {data, setMovieData,
+        isRequested, setRequested,
+        isLoading, setLoading,
+        search
+    } = useContext(moviesContext);
+
+    // Запрос к данным 
+    useEffect(() => {
+        if(!search.name) {return;}
+
+        setRequested(false);
+        setLoading(true);
+        const url = `http://www.omdbapi.com/?apikey=${APIKEY}&s=${search.name}${search.type ? `&type=${search.type}`: ''}`;
+        getMoviesData(url);
+    // eslint-disable-next-line
+    }, [search]);
 
     // Запрос к API
     const getMoviesData = async (url) => {
         fetch(url)
         .then(response => {
-            if (response.ok) {
-                return response.json()
-                .then(data => {
-                    setMovieData(data.Search);
-                })
-            } else {
-                alert(`HTTP ERROR ${response.status}`);
+            // Обработка ошибок HTTP
+            if (!response.ok) {
+                throw new Error(`Data reception HTTP error ${response.status}`);
             }
-        });
+            return response.json();
+        })
+        // Обновление состояний
+        .then(data => {
+            setMovieData(data.Search || []);
+            setLoading(false);
+            setRequested(true);
+            console.log('tf nigga');
+        })
+        .catch(e => {
+            console.error(`Fetch API error: ${e} (${e.message})`);
+            setLoading(false);
+        })
+                
+            
     }
 
     return <div className="content-block movie-list-block">
-        
+        {isRequested 
+        ? <>{data.length ? <p>{data.toString()}</p> : <NotFoundPlaceholder name={search.name}/>}</>
+        : <>{isLoading ? <LoadingPlaceholder /> : <InitPlaceholder />}</>}
     </div>
 }
