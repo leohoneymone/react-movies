@@ -2,7 +2,7 @@
 
 ## TODO:
 
-- ~~Data reception via API ~~
+- ~~Data reception via API~~
 - Data parsing using context + reducer 
 - ~~Selection menu (genre, year, name, etc.)~~ 
 - Watch list section for saving movies 
