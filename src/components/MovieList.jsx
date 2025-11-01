@@ -43,7 +43,6 @@ export default function MovieList() {
         setRequested(false);
         setLoading(true);
         searchMovies(search.name, search.type);
-    // eslint-disable-next-line
     }, [search]);
 
     // Выборка фильмов по названию + категории
