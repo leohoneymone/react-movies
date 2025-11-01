@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { moviesContext } from "../utils/context";
+import MovieItem from "./MovieItem";
 
 const APIKEY = process.env.REACT_APP_APIKEY;
 
@@ -73,7 +74,9 @@ export default function MovieList() {
 
     return <div className="content-block movie-list-block">
         {isRequested 
-        ? <>{data.length ? <p>{data.toString()}</p> : <NotFoundPlaceholder name={search.name}/>}</>
+        ? <>{data.length 
+            ? <div> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> 
+            : <NotFoundPlaceholder name={search.name}/>}</>
         : <>{isLoading ? <LoadingPlaceholder /> : <InitPlaceholder />}</>}
     </div>
 }
