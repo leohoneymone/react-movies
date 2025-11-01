@@ -28,4 +28,23 @@
     .select-form *{
         width: 100%;
     }
+    .movie-list-block {
+        min-height: calc(100% - 250px - 1rem);
+    }
+
+    /* Страница "О приложении" */
+    .about-block{
+        font-size: 1rem;
+    }
+    .about-author{
+        flex-direction: column;
+        align-items: center;
+    }
+    .citation-box{
+        margin: 0;
+        padding: 0;
+    }
+    .citation::after{
+        bottom: -1.5rem;
+    }
 }

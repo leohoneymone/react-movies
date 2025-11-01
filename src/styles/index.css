@@ -25,6 +25,7 @@ html {
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 /* Основные элементы */
@@ -102,6 +103,10 @@ html {
   padding: 1rem;
 }
 
+.full-sized-block{
+  min-height: 100%;
+}
+
 footer{
   grid-row: 3 / -1;
   grid-column: 1 / -1;
@@ -117,7 +122,6 @@ footer{
 
 /* Страница 404 (плейсхолдер для пустых страниц) */
 .page-not-found-block{
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,6 +150,160 @@ footer{
   transform: translateY(-2px);
   color: var(--color-links-hover);
   transition: var(--transition-hover);
+}
+
+/* Страница "О приложении" */
+.about-block{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.25rem;
+  text-align: justify;
+}
+
+.about-title{
+  text-align: center;
+}
+
+.about-block > h2{
+  padding-left: 1rem;
+}
+
+.about-block > h2:not(:first-of-type){
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 3px solid #88888866;
+}
+
+.about-navigation{
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.about-navigation > a, .author-socials > a, .about-block > ul a{
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-hover);
+}
+
+.about-navigation > a::before{
+  content: '#';
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: var(--color-links-hover);
+}
+
+.about-navigation > a:hover{
+  color: var(--color-links-hover);
+  transform: translateY(-1px);
+  transition: var(--transition-hover);
+}
+
+.about-block > ul {
+  padding-left: 1rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.about-block > ul > li::before{
+  content: '–';
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: var(--color-links-hover);
+}
+
+.about-block span:not(.citation){
+  font-weight: bold;
+  color: var(--color-links-hover);
+}
+
+.about-author{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.name-and-image{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 250px;
+  width: 20%;
+  text-align: center;
+}
+
+.author-image{
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 5px 0 var(--color-shadow);
+}
+
+.author-name{
+  font-size: 1.35rem;
+}
+
+.author-name-tag, .author-trivia, .author-socials{
+  font-weight: 100;
+  margin-bottom: 0.5rem;
+}
+
+.author-description{
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.citation-box{
+  margin-left: 0.5rem;
+  padding-left: 2rem;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.citation{
+  position: relative;
+  padding-left: 2rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.citation::before{
+  content: '"';
+  position: absolute;
+  top: -1rem;
+  left: 0rem;
+  color: var(--color-links-hover);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.citation::after{
+  content: '"';
+  position: absolute;
+  bottom: -1rem;
+  right: -1.5rem;
+  color: var(--color-links-hover);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.author-socials{
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.author-socials > a:hover, .about-block > ul a:hover{
+  color: var(--color-links-hover);
+}
+
+.reference-list{
+  margin-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 /* Страница поиска фильмов */
