@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { moviesContext } from "../utils/context";
 import MovieItem from "./MovieItem";
 
-const APIKEY = process.env.REACT_APP_APIKEY;
+import { omdbApiRequest } from "../utils/api";
 
 // Начальный плейсхолдер 
 function InitPlaceholder() {
@@ -42,34 +42,21 @@ export default function MovieList() {
 
         setRequested(false);
         setLoading(true);
-        const url = `http://www.omdbapi.com/?apikey=${APIKEY}&s=${search.name}${search.type ? `&type=${search.type}`: ''}`;
-        getMoviesData(url);
+        searchMovies(search.name, search.type);
     // eslint-disable-next-line
     }, [search]);
 
-    // Запрос к API
-    const getMoviesData = async (url) => {
-        fetch(url)
-        .then(response => {
-            // Обработка ошибок HTTP
-            if (!response.ok) {
-                throw new Error(`Data reception HTTP error ${response.status}`);
-            }
-            return response.json();
-        })
-        // Обновление состояний
-        .then(data => {
-            setMovieData(data.Search || []);
-            setLoading(false);
-            setRequested(true);
-            console.log('tf nigga');
-        })
-        .catch(e => {
-            console.error(`Fetch API error: ${e} (${e.message})`);
-            setLoading(false);
-        })
-                
-            
+    // Выборка фильмов по названию + категории
+    const searchMovies = async (search, type = '') => {
+        const apiParameters = `&s=${search}${type ? `&type=${type}`: ''}`;
+        const data = await omdbApiRequest(apiParameters)
+            .catch(e => {
+                console.error(`Fetch API error: ${e} (${e.message})`);
+                setLoading(false);
+            });
+        setMovieData(data.Search || []);
+        setLoading(false);
+        setRequested(true);
     }
 
     return <div className="content-block movie-list-block">
