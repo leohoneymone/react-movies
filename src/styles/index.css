@@ -3,9 +3,10 @@
   --color-primary: #17202b;
   --color-text: #ffffff;
   --color-secondary: #ffffff;
-  --color-tiles: #bcbcbcbc;
+  --color-tiles: #eaeaeabc;
   --color-border: #888;
   --color-shadow: #000000aa;
+  --color-links-hover: #073f83;
   
   /* Переходы */
   --transition-hover: .2s ease-in-out;
@@ -114,6 +115,40 @@ footer{
   padding: 0 2rem;
 }
 
+/* Страница 404 (плейсхолдер для пустых страниц) */
+.page-not-found-block{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.page-not-found-block span {
+  font-weight: bold;
+  font-size: 7rem;
+  padding-bottom: 2rem;
+}
+
+.page-not-found-block p {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.page-not-found-block a{
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-hover);
+}
+
+.page-not-found-block a:hover{
+  transform: translateY(-2px);
+  color: var(--color-links-hover);
+  transition: var(--transition-hover);
+}
+
+/* Страница поиска фильмов */
 /* Панель поиска и выборки */
 .content-block > h3 {
   font-size: 1.25rem;
@@ -123,17 +158,29 @@ footer{
   position: relative;
 }
 
+.select-content-block button{
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition-hover);
+  border-radius: 0.3rem;
+  border: 0.5px solid var(--color-border);
+  
+}
+
+.select-content-block button:hover{
+  border: 0.5px solid var(--color-primary);
+  transform: translateY(-2px);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  transition: var(--transition-hover);
+}
+
 .toggle-select-btn{
   position: absolute;
   right: 1rem;
   top: 1rem;
   width: 25px;
   height: 25px;
-  border-radius: 0.3rem;
-  border: 0;
-  font-weight: bold;
-  cursor: pointer;
-  transition: var(--transition-hover);
 }
 
 .select-block {
@@ -160,23 +207,11 @@ footer{
 
 .select-button{
   padding: 0.3rem 0.5rem;
-  border-radius: 0.3rem;
-  border: 0;
-  font-weight: bold;
-  cursor: pointer;
-  transition: var(--transition-hover);
-}
-
-.select-button:hover, .toggle-select-btn:hover{
-  transform: translateY(-2px);
-  background: var(--color-primary);
-  color: var(--color-secondary);
-  transition: var(--transition-hover);
 }
 
 /* Список фильмов и плейсхолдеры для него */
 .movie-list-block{
-  min-height: calc(100vh - 500px - 3rem);
+  min-height: calc(100% - 100px - 1rem);
 }
 
 .loading-and-placeholder-block{

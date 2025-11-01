@@ -8,6 +8,7 @@ import Context from "./utils/context";
 
 // Страницы
 import MoviesPage from "./pages/MoviesPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 // eslint-disable-next-line
 const APIKEY = process.env.REACT_APP_APIKEY;
@@ -17,11 +18,13 @@ export default function App () {
         <BrowserRouter>
             <Header />
             <Context>
-                <Routes>
-                    <Route path="/" element={<MoviesPage />}/>
-                    <Route path="/about" element={'about page'}/>
-                    <Route path="*" element={'no page nigga'}/>
-                </Routes>
+                <div className="content">
+                    <Routes>
+                        <Route path="/" element={<MoviesPage />}/>
+                        <Route path="/about" element={'about page'}/>
+                        <Route path="*" element={<NotFoundPage />}/>
+                    </Routes>
+                </div>
             </Context>
             <Footer/>
         </BrowserRouter>
