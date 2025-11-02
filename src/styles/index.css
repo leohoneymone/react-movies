@@ -7,6 +7,7 @@
   --color-border: #888;
   --color-shadow: #000000aa;
   --color-links-hover: #073f83;
+  --color-confirm: #3e8440;
   
   /* Переходы */
   --transition-hover: .2s ease-in-out;
@@ -372,6 +373,12 @@ footer{
   min-height: calc(100% - 100px - 1rem);
 }
 
+.movie-list-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1rem;
+}
+
 .loading-and-placeholder-block{
   height: 100%;
   display: flex;
@@ -405,4 +412,68 @@ footer{
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Тайл с информацией о фильме */
+.moive-item-tile{
+  display: flex;
+  gap:1.5rem;
+  height: 280px;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 3px 0 var(--color-shadow);
+}
+
+.movie-poster{
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-item-info{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.25rem;
+}
+
+.movie-title{
+  font-size: 1.8rem;
+}
+
+.movie-year{
+  flex-grow: 1;
+}
+
+.movie-item-controls{
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+.movie-item-controls button, .info-btn{
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  border: 0.5px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.movie-item-controls .info-btn:hover{
+  transition: var(--transition-hover);
+  color: var(--color-text);
+  transform: translateY(-2px);
+  background: var(--color-primary);
+  border: 0.5px solid var(--color-primary);
+}
+
+.movie-item-controls .add-btn:hover{
+  transition: var(--transition-hover);
+  color: var(--color-text);
+  transform: translateY(-2px);
+  background: var(--color-confirm);
+  border: 0.5px solid var(--color-confirm);
 }

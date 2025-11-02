@@ -47,4 +47,20 @@
     .citation::after{
         bottom: -1.5rem;
     }
+
+    /* Список фильмов и плейсхолдеры для него */
+    .movie-list-container{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Тайл с информацией о фильме */
+    .moive-item-tile{
+        height: 255px;
+    }
+    .movie-title{
+        font-size: 1.3rem;
+    }
+    .movie-item-controls{
+        flex-direction: column;
+    }
 }

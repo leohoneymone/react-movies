@@ -61,7 +61,7 @@ export default function MovieList() {
     return <div className="content-block movie-list-block">
         {isRequested 
         ? <>{data.length 
-            ? <div> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> 
+            ? <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> 
             : <NotFoundPlaceholder name={search.name}/>}</>
         : <>{isLoading ? <LoadingPlaceholder /> : <InitPlaceholder />}</>}
     </div>
