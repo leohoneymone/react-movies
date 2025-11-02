@@ -442,6 +442,7 @@ footer{
 
 .movie-year{
   flex-grow: 1;
+  font-weight: 100;
 }
 
 .movie-item-controls{
