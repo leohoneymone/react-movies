@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export default  function MovieSelect() {
     // Cостояния
-    const {toggleSelectMovies, selectorOpened, setSearch, clearData, data} = useContext(moviesContext);
+    const {toggleSelectMovies, selectorOpened, setSearch, clearData} = useContext(moviesContext);
 
     // Чтение GET параметров
     const {pathname, search} = useLocation();
@@ -13,7 +13,7 @@ export default  function MovieSelect() {
     // Навигация
     const navigate = useNavigate();
 
-    // Обработка GET параметров
+    // Обработка GET параметров если таковые есть
     useEffect(() => {
         
         if(!search) {
@@ -36,21 +36,10 @@ export default  function MovieSelect() {
     // Размонтирование компонента
     useEffect(() => {
         return () => {
-            console.log('unmount nigga');
             clearData();
         }
     // eslint-disable-next-line
     }, [])
-
-    // Очистка полей при очистке данных
-    useEffect(() => {
-        if(data.length){
-            return;
-        }
-
-        searchBarRef.current.value = null;
-        selectTypeRef.current.value = '';
-    }, [data])
 
     // Рефы для работы с полями ввода
     const searchBarRef = useRef(null);
@@ -58,7 +47,8 @@ export default  function MovieSelect() {
 
     // Сохранение параметров поиска в состояние
     const setParameters = () => {
-        if(!searchBarRef.current || !selectTypeRef.current){
+        if(!searchBarRef.current.value || !selectTypeRef.current.value){
+            searchBarRef.current.focus();
             return;
         }
 
