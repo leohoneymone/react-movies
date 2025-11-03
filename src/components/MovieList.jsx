@@ -12,7 +12,8 @@ export default function MovieList() {
     const {data, setMovieData,
         isRequested, setRequested,
         isLoading, setLoading,
-        search, page, selectPage, 
+        search, setSearch,
+        page, selectPage, 
         totalResults, setTotalResults, setTotalPages
     } = useContext(moviesContext);
 
@@ -53,7 +54,9 @@ export default function MovieList() {
     // Нажатие на кнопку очистки формы
     const handleClear = () => {
         setRequested(false);
+        setSearch({});
         setMovieData([]);
+        selectPage(1);
         setTotalPages(0);
         setTotalResults(0);
     }
