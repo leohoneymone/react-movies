@@ -1,9 +1,30 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { moviesContext } from "../utils/context";
+
+import { useLocation } from "react-router-dom";
+import { type } from "@testing-library/user-event/dist/type";
 
 export default  function MovieSelect() {
     // Cостояния
     const {toggleSelectMovies, selectorOpened, setSearch} = useContext(moviesContext);
+
+    // Чтение GET параметров
+    const {location, search} = useLocation();
+
+    // Обработка GET параметров
+    useEffect(() => {
+        if(!search) {
+            return;
+        }
+        const ulrParameters = new URLSearchParams(search);
+        const searchbarFromGET = ulrParameters.get('search') || '';
+        const typeFromGET = ['', 'movie', 'series', 'episode'].includes(ulrParameters.get('type')) ? ulrParameters.get('type') : '';
+
+        searchBarRef.current.value = searchbarFromGET;
+        selectTypeRef.current.value = typeFromGET || '';
+
+        setParameters();
+    }, []);
 
     // Рефы для работы с полями ввода
     const searchBarRef = useRef(null);
