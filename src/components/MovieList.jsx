@@ -65,7 +65,7 @@ export default function MovieList() {
                     <p className="movie-total-results">Found {totalResults} items</p>
                     <Pagination />
                 </div>
-                <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div>
+                {!isLoading ? <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> : <LoadingPlaceholder />}
                 <div className="movie-list-controls">
                     <button className="movie-list-clear-btn" onClick={() => {handleClear()}}>🗑️ Clear</button>
                     <Pagination />
