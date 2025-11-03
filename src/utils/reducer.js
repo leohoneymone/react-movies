@@ -32,6 +32,18 @@ export const mainReducer = (state, {type, payload}) => {
         // Выбор страницы
         case "SELECT_PAGE":
             return {...state, page: payload}
+        
+        // Очистка состояния, связанного с данными
+        case "CLEAR_DATA":
+            return {...state, 
+                isRequested: false,
+                search: {},
+                isLoading: false,
+                data: [],
+                page: 1,
+                totalPages: 0,
+                totalResults: 0
+            }
 
         // По умолчанию
         default: return state;

@@ -1,21 +1,24 @@
 import { useContext, useEffect, useRef } from "react";
 import { moviesContext } from "../utils/context";
 
-import { useLocation } from "react-router-dom";
-import { type } from "@testing-library/user-event/dist/type";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default  function MovieSelect() {
     // Cостояния
-    const {toggleSelectMovies, selectorOpened, setSearch} = useContext(moviesContext);
+    const {toggleSelectMovies, selectorOpened, setSearch, clearData} = useContext(moviesContext);
 
     // Чтение GET параметров
-    const {location, search} = useLocation();
+    const {pathname, search} = useLocation();
+
+    // Навигация
+    const navigate = useNavigate();
 
     // Обработка GET параметров
     useEffect(() => {
         if(!search) {
             return;
         }
+
         const ulrParameters = new URLSearchParams(search);
         const searchbarFromGET = ulrParameters.get('search') || '';
         const typeFromGET = ['', 'movie', 'series', 'episode'].includes(ulrParameters.get('type')) ? ulrParameters.get('type') : '';
@@ -24,6 +27,10 @@ export default  function MovieSelect() {
         selectTypeRef.current.value = typeFromGET || '';
 
         setParameters();
+
+        return () => {clearData(); console.log('gbye from component');
+        }
+    // eslint-disable-next-line 
     }, []);
 
     // Рефы для работы с полями ввода
@@ -40,6 +47,8 @@ export default  function MovieSelect() {
             name: searchBarRef.current.value.trim(), 
             type: selectTypeRef.current.value
         });
+
+        navigate(pathname + `?search=${searchBarRef.current.value.trim()}${selectTypeRef.current.value ? `&type=${selectTypeRef.current.value}`: ''}`);
     }
 
     return <div className="content-block select-content-block">

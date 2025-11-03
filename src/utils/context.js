@@ -59,5 +59,9 @@ export default function Context ({children}){
         dispatcher({type: 'SELECT_PAGE', payload: data});
     }
 
+    appValue.clearData = () => {
+        dispatcher({type: 'CLEAR_DATA'});
+    }
+
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 
 }

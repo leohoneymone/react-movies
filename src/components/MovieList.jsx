@@ -9,11 +9,10 @@ import Pagination from "./Pagination";
 
 export default function MovieList() {
     // Состояния 
-    const {data, setMovieData,
+    const {data, setMovieData, clearData,
         isRequested, setRequested,
         isLoading, setLoading,
-        search, setSearch,
-        page, selectPage, 
+        search, page, selectPage, 
         totalResults, setTotalResults, setTotalPages
     } = useContext(moviesContext);
 
@@ -51,16 +50,6 @@ export default function MovieList() {
         setRequested(true);
     }
 
-    // Нажатие на кнопку очистки формы
-    const handleClear = () => {
-        setRequested(false);
-        setSearch({});
-        setMovieData([]);
-        selectPage(1);
-        setTotalPages(0);
-        setTotalResults(0);
-    }
-
     return <div className="content-block movie-list-block">
         {isRequested 
         ? <>{data.length 
@@ -70,7 +59,7 @@ export default function MovieList() {
                 </div>
                 {!isLoading ? <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> : <LoadingPlaceholder />}
                 <div className="movie-list-controls">
-                    <button className="movie-list-clear-btn" onClick={() => {handleClear()}}>🗑️ Clear</button>
+                    <button className="movie-list-clear-btn" onClick={() => {clearData()}}>🗑️ Clear</button>
                     <Pagination />
                 </div>
             </>
