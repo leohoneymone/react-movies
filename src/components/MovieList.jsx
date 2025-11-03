@@ -12,8 +12,8 @@ export default function MovieList() {
     const {data, setMovieData,
         isRequested, setRequested,
         isLoading, setLoading,
-        search, page, selectPage,
-        setTotalPages, setTotalResults
+        search, page, selectPage, 
+        totalResults, setTotalResults, setTotalPages
     } = useContext(moviesContext);
 
     // Запрос к данным при поиске новой информации
@@ -53,9 +53,15 @@ export default function MovieList() {
     return <div className="content-block movie-list-block">
         {isRequested 
         ? <>{data.length 
-            ? <><Pagination />
+            ? <><div className="movie-list-controls">
+                    <p className="movie-total-results">Found {totalResults} items</p>
+                    <Pagination />
+                </div>
                 <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div>
-                {/* <Pagination />  */}
+                <div className="movie-list-controls">
+                    <button className="movie-list-clear-btn" onClick={() => {setMovieData([])}}>🗑️ Clear</button>
+                    <Pagination />
+                </div>
             </>
             : <NotFoundPlaceholder name={search.name}/>}</>
         : <>{isLoading ? <LoadingPlaceholder /> : <InitPlaceholder />}</>}
