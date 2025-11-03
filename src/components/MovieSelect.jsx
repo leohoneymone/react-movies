@@ -15,7 +15,9 @@ export default  function MovieSelect() {
 
     // Обработка GET параметров
     useEffect(() => {
+        
         if(!search) {
+            clearData();
             return;
         }
 
@@ -28,7 +30,8 @@ export default  function MovieSelect() {
 
         setParameters();
 
-        return () => {clearData(); console.log('gbye from component');
+        return () => {
+            clearData();
         }
     // eslint-disable-next-line 
     }, []);
