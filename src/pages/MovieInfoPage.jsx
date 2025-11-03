@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect } from "react";
 
 import { omdbApiRequest } from "../utils/api";
+import { LoadingPlaceholder } from "../components/layout/Placeholders";
 
 export default function MovieInfoPage() {
     // Чтение imdbId из URL
@@ -13,6 +14,7 @@ export default function MovieInfoPage() {
         }
 
         getMovieData(movieId);
+    // eslint-disable-next-line
     }, []);
 
     // Запрос полной информации о фильме
@@ -27,5 +29,6 @@ export default function MovieInfoPage() {
 
     return <div className="content-block full-sized-block ">
         <p>Searching for moive with ID: {movieId}</p>
+        <LoadingPlaceholder />
     </div>
 }

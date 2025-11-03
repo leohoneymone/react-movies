@@ -4,29 +4,7 @@ import MovieItem from "./MovieItem";
 
 import { omdbApiRequest } from "../utils/api";
 
-// Начальный плейсхолдер 
-function InitPlaceholder() {
-    return <div className="loading-and-placeholder-block">
-        <span className="placeholder-icon">🎬</span>
-        <p>There will be movies you'll find</p>
-    </div>
-}
-
-// Плейсхолдер для загрузки контента
-function LoadingPlaceholder() {
-    return <div className="loading-and-placeholder-block">
-        <span className="placeholder-icon loading-animated">💿</span>
-        <p>Loading...</p>
-    </div>
-}
-
-// Плейсхолдер для пустого вывода фильмов
-function NotFoundPlaceholder({name}) {
-    return <div className="loading-and-placeholder-block">
-        <span className="placeholder-icon">🗿</span>
-        <p>Nothing found by "{name}" request</p>
-    </div>
-}
+import { InitPlaceholder, NotFoundPlaceholder, LoadingPlaceholder } from "./layout/Placeholders";
 
 export default function MovieList() {
     // Состояния 
@@ -44,6 +22,7 @@ export default function MovieList() {
         setRequested(false);
         setLoading(true);
         searchMovies(search.name, search.type, page);
+    // eslint-disable-next-line
     }, [search, page]);
 
     // Выборка фильмов по названию + категории
