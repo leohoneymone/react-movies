@@ -12,19 +12,28 @@ export default function MovieList() {
     const {data, setMovieData,
         isRequested, setRequested,
         isLoading, setLoading,
-        search, page,
+        search, page, selectPage,
         setTotalPages, setTotalResults
     } = useContext(moviesContext);
 
-    // Запрос к данным 
+    // Запрос к данным при поиске новой информации
     useEffect(() => {
         if(!search.name) {return;}
 
-        setRequested(false);
+        selectPage(1);
         setLoading(true);
         searchMovies(search.name, search.type, page);
     // eslint-disable-next-line
-    }, [search, page]);
+    }, [search]);
+
+    // Запрос к данным при использованиии пагинации
+    useEffect(() => {
+        if(!search.name || !isRequested) {return;}
+
+        setLoading(true);
+        searchMovies(search.name, search.type, page);
+    // eslint-disable-next-line
+    }, [page]);
 
     // Выборка фильмов по названию + категории
     const searchMovies = async (search, type = '', page) => {
