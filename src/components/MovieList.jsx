@@ -1,13 +1,19 @@
 import { useContext, useEffect } from "react";
 import { moviesContext } from "../utils/context";
-import MovieItem from "./MovieItem";
+
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { omdbApiRequest } from "../utils/api";
 
 import { InitPlaceholder, NotFoundPlaceholder, LoadingPlaceholder } from "./layout/Placeholders";
 import Pagination from "./Pagination";
+import MovieItem from "./MovieItem";
 
 export default function MovieList() {
+    // Работа с ссылками
+    const {pathname} = useLocation();
+    const navigate = useNavigate();
+
     // Состояния 
     const {data, setMovieData, clearData,
         isRequested, setRequested,
@@ -50,6 +56,12 @@ export default function MovieList() {
         setRequested(true);
     }
 
+    // Обработка очистки контейнера
+    const handleClearButton = () => {
+        clearData();
+        navigate(pathname);
+    }
+
     return <div className="content-block movie-list-block">
         {isRequested 
         ? <>{data.length 
@@ -59,7 +71,7 @@ export default function MovieList() {
                 </div>
                 {!isLoading ? <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> : <LoadingPlaceholder />}
                 <div className="movie-list-controls">
-                    <button className="movie-list-clear-btn" onClick={() => {clearData()}}>🗑️ Clear</button>
+                    <button className="movie-list-clear-btn" onClick={() => {handleClearButton()}}>🗑️ Clear</button>
                     <Pagination />
                 </div>
             </>
