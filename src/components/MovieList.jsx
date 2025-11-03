@@ -5,6 +5,7 @@ import MovieItem from "./MovieItem";
 import { omdbApiRequest } from "../utils/api";
 
 import { InitPlaceholder, NotFoundPlaceholder, LoadingPlaceholder } from "./layout/Placeholders";
+import Pagination from "./Pagination";
 
 export default function MovieList() {
     // Состояния 
@@ -43,7 +44,10 @@ export default function MovieList() {
     return <div className="content-block movie-list-block">
         {isRequested 
         ? <>{data.length 
-            ? <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> 
+            ? <><Pagination />
+                <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div>
+                {/* <Pagination />  */}
+            </>
             : <NotFoundPlaceholder name={search.name}/>}</>
         : <>{isLoading ? <LoadingPlaceholder /> : <InitPlaceholder />}</>}
     </div>

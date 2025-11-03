@@ -7,6 +7,7 @@
   --color-border: #888;
   --color-shadow: #000000aa;
   --color-links-hover: #073f83;
+  --color-pagination-hover: #cccccc;
   --color-confirm: #3e8440;
   
   /* Переходы */
@@ -426,6 +427,7 @@ footer{
 
 .movie-poster{
   height: 100%;
+  max-width: 170px;
   object-fit: cover;
 }
 
@@ -477,4 +479,47 @@ footer{
   transform: translateY(-2px);
   background: var(--color-confirm);
   border: 0.5px solid var(--color-confirm);
+}
+
+/* Стили для пагинатора */
+.pagination-controls{
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.pagination-button{
+  height: 25px;
+  min-width: 25px;
+  background: var(--color-secondary);
+  border: 0.5px solid var(--color-border);
+  border-right: 0;
+  border-collapse: collapse;
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.pagination-button.left{
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.pagination-button.right{
+  border-radius: 0 0.3rem 0.3rem 0;
+  border: 0.5px solid var(--color-border);
+}
+
+.pagination-button.current{
+  background: var(--color-primary);
+  color: var(--color-text) !important;
+  font-weight: bold;
+}
+
+.pagination-button:disabled{
+  cursor: default;
+  pointer-events: none;
+  color: var(--color-border);
+}
+
+.pagination-button:hover{
+  transition: var(--transition-hover);
+  background: var(--color-pagination-hover);
 }
