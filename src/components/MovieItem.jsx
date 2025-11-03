@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 
+import noImagePlaceholder from '../utils/tile-no-image.png';
+
 export default function MovieItem(props) {
     const {imdbID, Title, Year, Type, Poster} = props;
 
+
+
     return <div className="moive-item-tile">
-        <img src={Poster} alt={Title} className="movie-poster"/>
+        <img src={Poster} alt={Title} onError={e => {e.target.src = noImagePlaceholder}} className="movie-poster"/>
         <div className="movie-item-info">
             <h2 className="movie-title">{Title}</h2>
             <p className="movie-year">{Year} / {Type}</p>

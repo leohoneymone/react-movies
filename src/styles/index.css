@@ -425,21 +425,18 @@ footer{
   gap: 2rem;
 }
 
-.placeholder-icon{
-  font-size: 7rem;
-  vertical-align: middle;
-  text-align: center;
-  width: 150px;
-  height: 150px;
+.placeholder-image{
+  width: 250px;
 }
 
 .loading-and-placeholder-block > p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #333;
 }
 
 .loading-animated{
-  animation: loading-placeholder-spin 1s ease-in-out infinite; 
+  animation: loading-placeholder-spin 2s ease-in-out infinite; 
 }
 
 @keyframes loading-placeholder-spin {
@@ -447,7 +444,7 @@ footer{
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(1080deg);
   }
 }
 

@@ -1,7 +1,11 @@
+import loadingImg from '../../utils/spin-loading.png';
+import initImg from '../../utils/init-placeholder-img.png';
+import notFoundImg from '../../utils/not-found-image.png';
+
 // Начальный плейсхолдер 
 export function InitPlaceholder() {
     return <div className="loading-and-placeholder-block">
-        <span className="placeholder-icon">🎬</span>
+        <img src={initImg} alt="initImg" className='placeholder-image'/>
         <p>There will be movies you'll find</p>
     </div>
 }
@@ -9,7 +13,7 @@ export function InitPlaceholder() {
 // Плейсхолдер для загрузки контента
 export function LoadingPlaceholder() {
     return <div className="loading-and-placeholder-block">
-        <span className="placeholder-icon loading-animated">💿</span>
+        <img src={loadingImg} alt="loadingImg" className='placeholder-image loading-animated'/>
         <p>Loading...</p>
     </div>
 }
@@ -17,7 +21,7 @@ export function LoadingPlaceholder() {
 // Плейсхолдер для пустого вывода фильмов
 export function NotFoundPlaceholder({name}) {
     return <div className="loading-and-placeholder-block">
-        <span className="placeholder-icon">🗿</span>
+        <img src={notFoundImg} alt="notFoundImg" className='placeholder-image'/>
         <p>Nothing found by "{name}" request</p>
     </div>
 }
