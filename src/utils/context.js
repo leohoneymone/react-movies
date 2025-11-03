@@ -4,6 +4,9 @@ import { mainReducer } from "./reducer";
 // Контекст
 export const moviesContext =  createContext();
 
+// По 10 записей на страницу (ограничение API)
+export const TILES_PER_PAGE = 10;
+
 // Начальные значения 
 const movieCatalogInitValue = {
     selectorOpened: true,
@@ -11,6 +14,9 @@ const movieCatalogInitValue = {
     isRequested: false,
 
     data: [],
+    page: 1,
+    totalResults: 0,
+    totalPages: 0,
     search: {},
 }
 
@@ -39,6 +45,18 @@ export default function Context ({children}){
     
     appValue.setSearch = data => {
         dispatcher({type: "SET_SEARCH_DATA", payload: data});
+    }
+
+    appValue.setTotalResults = data => {
+        dispatcher({type: 'SET_TOTAL_RESULTS', payload: data});
+    }
+
+    appValue.setTotalPages = data => {
+        dispatcher({type: 'SET_TOTAL_PAGES', payload: data});
+    }
+
+    appValue.selectPage = data =>{
+        dispatcher({type: 'SELECT_PAGE', payload: data});
     }
 
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 

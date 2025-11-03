@@ -33,7 +33,8 @@ export default function MovieList() {
     const {data, setMovieData,
         isRequested, setRequested,
         isLoading, setLoading,
-        search
+        search, page,
+        setTotalPages, setTotalResults
     } = useContext(moviesContext);
 
     // Запрос к данным 
@@ -42,12 +43,12 @@ export default function MovieList() {
 
         setRequested(false);
         setLoading(true);
-        searchMovies(search.name, search.type);
-    }, [search]);
+        searchMovies(search.name, search.type, page);
+    }, [search, page]);
 
     // Выборка фильмов по названию + категории
-    const searchMovies = async (search, type = '') => {
-        const apiParameters = `&s=${search}${type ? `&type=${type}`: ''}`;
+    const searchMovies = async (search, type = '', page) => {
+        const apiParameters = `&s=${search}&page=${page}${type ? `&type=${type}`: ''}`;
         const data = await omdbApiRequest(apiParameters)
             .catch(e => {
                 console.error(`Fetch API error: ${e} (${e.message})`);
@@ -55,6 +56,8 @@ export default function MovieList() {
             });
         setMovieData(data.Search || []);
         setLoading(false);
+        setTotalResults(+data.totalResults);
+        setTotalPages(Math.ceil(+data.totalResults / 10));
         setRequested(true);
     }
 

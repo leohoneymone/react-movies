@@ -21,6 +21,18 @@ export const mainReducer = (state, {type, payload}) => {
         case "SET_SEARCH_DATA":
             return {...state, search: payload}
 
+        // Установка количества страниц
+        case "SET_TOTAL_RESULTS":
+            return {...state, totalResults: payload}
+
+        // Установка количества страниц
+        case "SET_TOTAL_PAGES":
+            return {...state, totalPages: payload}
+        
+        // Выбор страницы
+        case "SELECT_PAGE":
+            return {...state, page: payload}
+
         // По умолчанию
         default: return state;
     }
