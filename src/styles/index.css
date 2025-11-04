@@ -134,6 +134,16 @@ footer{
   background: #333;
   color:white;
   max-width: 250px;
+  animation: modal-swing .3s ease-in-out;
+}
+
+@keyframes modal-swing {
+  from{
+    transform: translateX(calc(-250px - 2rem));
+  }
+  to{
+    transform: translateX(0);
+  }
 }
 
 .modal-close{
