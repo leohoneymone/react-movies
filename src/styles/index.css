@@ -551,3 +551,119 @@ footer{
   transition: var(--transition-hover);
   background: var(--color-pagination-hover);
 }
+
+/* Подробная информация о фильме */
+.movie-info-cotainer{
+  display: flex;
+  gap: 2rem;
+}
+
+.movie-info-poster-box{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.movie-ratings{
+  border-collapse: collapse;
+}
+
+.movie-ratings th{
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+}
+
+.movie-ratings td{
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.imdb-votes-row td{
+  font-size: 1rem;
+  color:var(--color-border);
+}
+
+.movie-info-content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap:0.5rem;
+  width: 100%;
+}
+
+.movie-info-controls{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.movie-info-controls button {
+  font-size: 1rem;
+  color: var(--color-primary);
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  border: 0.5px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition-hover);
+}
+
+.movie-info-controls button:hover {
+  transform: translateY(-2px);
+  transition: var(--transition-hover);
+  color: var(--color-text);
+}
+
+.movie-info-controls .add-btn:hover{
+  background: var(--color-add);
+  border: 0.5px solid var(--color-add);
+}
+
+.movie-info-controls .go-back-btn:hover{
+  background: var(--color-remove);
+  border: 0.5px solid var(--color-remove);
+}
+
+.movie-info-title{
+  font-size: 2.25rem;
+}
+
+.movie-info-trivia{
+  font-size: 1.1rem;
+  font-weight: 100;
+}
+
+.trivia-type{
+  text-transform: capitalize;
+}
+
+.movie-info-runtime{
+  padding-top: 1rem;
+}
+
+.pegi-rated{
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.movie-info-creators{
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.td-creators-title{
+  padding-right: 1rem;
+}
+
+.movie-info-awards{
+  font-weight: 100;
+}
+
+.movie-info-plot{
+  padding-top: 1rem;
+  text-align: justify;
+  font-size: 1.3rem;
+}

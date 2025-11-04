@@ -45,6 +45,10 @@ export const mainReducer = (state, {type, payload}) => {
                 totalResults: 0
             }
 
+        // Получение подробных данных о конкретном фильме
+        case "SET_MOVIE_DETAILED_INFO":
+            return {...state, movieDetailedInfo: payload}
+
         // По умолчанию
         default: return state;
     }

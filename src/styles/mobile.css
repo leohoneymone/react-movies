@@ -52,6 +52,15 @@
     .movie-list-container{
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
+    .movie-list-controls{
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+    .movie-list-controls:last-of-type{
+        flex-direction: column-reverse;
+        align-items: end;
+    }
 
     /* Тайл с информацией о фильме */
     .moive-item-tile{
@@ -62,5 +71,23 @@
     }
     .movie-item-controls{
         flex-direction: column;
+    }
+
+    /* Подробная информация о фильме */
+    .movie-info-cotainer{
+        flex-direction: column;
+    }
+    .movie-info-controls{
+        position: relative;
+        justify-content: space-around;
+        padding-top: 1rem;
+    }
+    .movie-info-creators td{
+        vertical-align: top;
+        text-align: justify;
+        padding-bottom: 0.5rem;
+    }
+    .movie-info-controls button {
+        font-size: 1.5rem;
     }
 }

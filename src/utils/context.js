@@ -18,6 +18,8 @@ const movieCatalogInitValue = {
     totalResults: 0,
     totalPages: 0,
     search: {},
+
+    movieDetailedInfo: {}
 }
 
 // Обёртка для контекста
@@ -61,6 +63,10 @@ export default function Context ({children}){
 
     appValue.clearData = () => {
         dispatcher({type: 'CLEAR_DATA'});
+    }
+
+    appValue.setMovieDetailedInfo = data => {
+        dispatcher({type: "SET_MOVIE_DETAILED_INFO", payload: data});
     }
 
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 
