@@ -82,15 +82,11 @@
         max-width: 100%;
     }
     .movie-info-controls{
-        justify-content: space-around;
         padding-top: 1rem;
     }
     .movie-info-creators td{
         vertical-align: top;
         text-align: justify;
         padding-bottom: 0.5rem;
-    }
-    .movie-info-controls button {
-        font-size: 1.5rem;
     }
 }
