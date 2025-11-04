@@ -82,7 +82,6 @@
         max-width: 100%;
     }
     .movie-info-controls{
-        position: relative;
         justify-content: space-around;
         padding-top: 1rem;
     }

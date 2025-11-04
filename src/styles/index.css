@@ -384,6 +384,10 @@ footer{
   align-items: center;
 }
 
+.movie-list-controls:last-of-type{
+  align-items: end;
+}
+
 .movie-total-results{
   font-weight: bold;
   font-size: 1.1rem;
@@ -394,7 +398,7 @@ footer{
   border: 0.5px solid var(--color-border);
   border-radius: 0.3rem;
   padding: 0 0.5rem;
-  height: 25px;
+  height: 35px;
   vertical-align: middle;
   cursor: pointer;
   transition: var(--transition-hover);
@@ -477,6 +481,7 @@ footer{
   font-size: 1.8rem;
   display: -webkit-box;
   line-clamp: 3;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -601,10 +606,8 @@ footer{
 }
 
 .movie-info-controls{
-  position: absolute;
-  bottom: 0;
-  right: 0;
   display: flex;
+  justify-content: end;
   gap: 0.5rem;
 }
 
@@ -674,4 +677,5 @@ footer{
   padding-top: 1rem;
   text-align: justify;
   font-size: 1.3rem;
+  flex-grow: 1;
 }
