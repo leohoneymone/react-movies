@@ -473,6 +473,10 @@ footer{
 
 .movie-title{
   font-size: 1.8rem;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .movie-year{

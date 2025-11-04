@@ -52,7 +52,7 @@ export default function MovieInfoPage() {
 
                     <div className="movie-info-poster-box">
                         <img src={data.Poster} alt={data.Title} onError={e => {e.target.src = noImagePlaceholder}} className="movie-info-poster"/>
-                        <table className="movie-ratings">
+                        {data.Ratings.length ? <table className="movie-ratings">
                             <thead>
                                 <tr>
                                     <th colSpan={2}>Ratings</th>
@@ -70,8 +70,8 @@ export default function MovieInfoPage() {
                                     <td>{data.imdbVotes}</td>
                                 </tr>
                             </tbody>
-                        </table>
-                        <p className="movie-box-office">Box office: {data.BoxOffice}</p>
+                        </table> : null}
+                        {data.BoxOffice !== "N/A" ? <p className="movie-box-office">Box office: {data.BoxOffice}</p> : null}
                     </div>
                     
                     <div className="movie-info-content">
@@ -79,24 +79,26 @@ export default function MovieInfoPage() {
                         <p className="movie-info-trivia">{data.Year} / <span className="trivia-type">{data.Type}</span> / {data.Genre}</p>
                         <p className="movie-info-trivia">{data.Country} / {data.Language}</p>
                         <p className="movie-info-runtime">Runtime: {data.Runtime}</p>
-                        <p className="pegi-rated">{data.Rated}</p>
+                        {data.Rated !== "N/A" ? <p className="pegi-rated">{data.Rated}</p> : null}
 
                         <table className="movie-info-creators">
-                            <tr>
-                                <td className="td-creators-title">Director</td>
-                                <td>{data.Director}</td>
-                            </tr>
-                            <tr>
-                                <td className="td-creators-title">Writer</td>
-                                <td>{data.Writer}</td>
-                            </tr>
-                            <tr>
-                                <td className="td-creators-title">Actors</td>
-                                <td>{data.Actors}</td>
-                            </tr>
+                            <tbody>
+                                {data.Director !== "N/A" ? <tr>
+                                    <td className="td-creators-title">Director</td>
+                                    <td>{data.Director}</td> 
+                                </tr> : null} 
+                                {data.Writer !== "N/A" ? <tr>
+                                    <td className="td-creators-title">Writer</td>
+                                    <td>{data.Writer}</td>
+                                </tr> : null} 
+                                {data.Actors !== "N/A" ? <tr>
+                                    <td className="td-creators-title">Actors</td>
+                                    <td>{data.Actors}</td>
+                                </tr> : null} 
+                            </tbody>
                         </table>
-                        <p className="movie-info-awards">{data.Awards}</p>
-                        <p className="movie-info-plot">{data.Plot}</p>
+                        {data.Awards !== "N/A" ? <p className="movie-info-awards">{data.Awards}</p> : null}
+                        {data.Plot !== "N/A" ? <p className="movie-info-plot">{data.Plot}</p> : null}
 
                         <div className="movie-info-controls">
                             <button className="add-btn">+ Add to Watch List</button>
