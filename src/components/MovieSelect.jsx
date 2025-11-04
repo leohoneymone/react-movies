@@ -47,8 +47,7 @@ export default  function MovieSelect() {
 
     // Сохранение параметров поиска в состояние
     const setParameters = () => {
-        if(!searchBarRef.current.value || !selectTypeRef.current.value){
-            searchBarRef.current.focus();
+        if(!searchBarRef.current || !selectTypeRef.current){
             return;
         }
 
