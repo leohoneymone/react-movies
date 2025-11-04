@@ -9,6 +9,7 @@ export const TILES_PER_PAGE = 10;
 
 // Начальные значения 
 const movieCatalogInitValue = {
+    modalMessage: '',
     isLoading: false,
     isRequested: false,
 
@@ -62,6 +63,10 @@ export default function Context ({children}){
 
     appValue.setMovieDetailedInfo = data => {
         dispatcher({type: "SET_MOVIE_DETAILED_INFO", payload: data});
+    }
+
+    appValue.setModalMessage = text => {
+        dispatcher({type: "SET_MODAL_MESSAGE", payload: text});
     }
 
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 

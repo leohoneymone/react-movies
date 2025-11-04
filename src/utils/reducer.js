@@ -45,6 +45,9 @@ export const mainReducer = (state, {type, payload}) => {
         case "SET_MOVIE_DETAILED_INFO":
             return {...state, movieDetailedInfo: payload}
 
+        // Работа с модальным окноп
+        case "SET_MODAL_MESSAGE":
+            return {...state, modalMessage: payload}
         // По умолчанию
         default: return state;
     }

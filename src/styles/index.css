@@ -123,6 +123,37 @@ footer{
   padding: 0 2rem;
 }
 
+/* Модальное окно с оповещениями */
+.modal-window{
+  position: fixed;
+  bottom: 5rem;
+  left: 1rem;
+  box-shadow: 0 0 10px 0 var(--color-shadow);
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  background: #333;
+  color:white;
+  max-width: 250px;
+}
+
+.modal-close{
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+}
+
+.modal-text{
+  margin-top: 1rem;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Страница 404 (плейсхолдер для пустых страниц) */
 .page-not-found-block{
   display: flex;

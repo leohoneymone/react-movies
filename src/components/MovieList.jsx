@@ -19,7 +19,8 @@ export default function MovieList() {
         isRequested, setRequested,
         isLoading, setLoading,
         search, page, selectPage, 
-        totalResults, setTotalResults, setTotalPages
+        totalResults, setTotalResults,
+        setTotalPages, setModalMessage
     } = useContext(moviesContext);
 
     // Запрос к данным при поиске новой информации
@@ -60,6 +61,7 @@ export default function MovieList() {
     const handleClearButton = () => {
         clearData();
         navigate(pathname);
+        setModalMessage('Cleared list');
     }
 
     return <div className="content-block movie-list-block">
