@@ -28,6 +28,10 @@ export default function MovieInfoPage() {
         }
 
         getMovieData(movieId);
+
+        return () => {
+            setMovieDetailedInfo({});
+        }
     // eslint-disable-next-line
     }, []);
 
