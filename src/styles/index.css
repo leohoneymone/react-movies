@@ -414,6 +414,8 @@ footer{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem 1rem;
+  grid-auto-rows: 280px;
+  flex-grow: 1;
 }
 
 .loading-and-placeholder-block{
