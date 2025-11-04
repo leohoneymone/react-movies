@@ -69,6 +69,7 @@ html {
   width: max-content;
   padding-right: 1rem;
   font-weight: bold;
+  transition: var(--transition-hover);
 }
 
 .header-nav{
@@ -86,7 +87,7 @@ html {
   transition: var(--transition-hover);
 }
 
-.header-nav > a:hover{
+.header-nav > a:hover, .header-title-link:hover{
   transform: translateY(-2px);
   transition: var(--transition-hover);
 }
@@ -677,6 +678,11 @@ footer{
 .movie-info-controls .go-back-btn:hover{
   background: var(--color-remove);
   border: 0.5px solid var(--color-remove);
+}
+
+.movie-info-controls .share-btn:hover{
+  background: var(--color-primary);
+  border: 0.5px solid var(--color-primary);
 }
 
 .movie-info-title{

@@ -1,11 +1,13 @@
 import { useEffect, useContext } from "react";
 import { moviesContext } from "../utils/context";
 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation} from "react-router-dom";
 
 import { omdbApiRequest } from "../utils/api";
 import { LoadingPlaceholder } from "../components/layout/Placeholders";
 import noImagePlaceholder from '../utils/tile-no-image.png';
+
+import Modal from "../components/layout/Modal";
 
 export default function MovieInfoPage() {
     // Чтение imdbId из URL
@@ -14,10 +16,14 @@ export default function MovieInfoPage() {
     // Работа с ссылками
     const navigate = useNavigate();
 
+    // Ссылка
+    const {pathname} = useLocation();
+
     // Состояния
     const {
         isLoading, setLoading,
-        movieDetailedInfo, setMovieDetailedInfo
+        movieDetailedInfo, setMovieDetailedInfo,
+        modalMessage, setModalMessage
     } = useContext(moviesContext);
  
     // Загрузка компонента
@@ -44,6 +50,12 @@ export default function MovieInfoPage() {
             });
         setMovieDetailedInfo(data);
         setLoading(false);
+    }
+
+    // Копирование в буфер обмена
+    const handleClipboard = () => {
+        navigator.clipboard.writeText(pathname);
+        setModalMessage('URL copied to clipboard');
     }
 
     // Деструктуризация
@@ -105,6 +117,7 @@ export default function MovieInfoPage() {
                         {data.Plot !== "N/A" ? <p className="movie-info-plot">{data.Plot}</p> : null}
 
                         <div className="movie-info-controls">
+                            <button className="share-btn" onClick={()=> {handleClipboard()}}>🔗 Share</button>
                             <button className="add-btn">+ Add to Watch List</button>
                             <button className="go-back-btn" onClick={() => {navigate(-1)}}>Go back</button>
                         </div>
@@ -113,6 +126,7 @@ export default function MovieInfoPage() {
             : <></> 
         }</>
         }
+        {modalMessage ? <Modal /> : null}
     </div>
 
 }
