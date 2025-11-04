@@ -162,6 +162,7 @@ footer{
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  padding-right: 1rem;
 }
 
 /* Страница 404 (плейсхолдер для пустых страниц) */

@@ -61,7 +61,7 @@ export default function MovieList() {
     const handleClearButton = () => {
         clearData();
         navigate(pathname);
-        setModalMessage('Cleared list');
+        setModalMessage('Movie list cleared');
     }
 
     return <div className="content-block movie-list-block">
