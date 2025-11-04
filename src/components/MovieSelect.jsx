@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export default  function MovieSelect() {
     // Cостояния
-    const {toggleSelectMovies, selectorOpened, setSearch, clearData} = useContext(moviesContext);
+    const {setSearch, clearData} = useContext(moviesContext);
 
     // Чтение GET параметров
     const {pathname, search} = useLocation();
@@ -61,8 +61,7 @@ export default  function MovieSelect() {
 
     return <div className="content-block select-content-block">
         <h3>Select movies</h3>
-        <button className="toggle-select-btn" onClick={() => {toggleSelectMovies()}}>{selectorOpened ? '▲' : '▼'}</button>
-        {selectorOpened ? <div className="select-block">
+        <div className="select-block">
             <div className="select-form">
                 <label htmlFor="movie-searchbar">Search for movies:</label>
                 <input type="text" className="movie-searchbar" id="movie-searchbar" placeholder="e.g. Iron Man" ref={searchBarRef} autoComplete="off"/>
@@ -75,6 +74,6 @@ export default  function MovieSelect() {
                 </select>            
             </div>
             <button className="select-button" onClick={()=>{setParameters()}}>Find movies</button>
-        </div> : <></>}
+        </div>
     </div>
 }

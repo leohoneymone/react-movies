@@ -9,7 +9,6 @@ export const TILES_PER_PAGE = 10;
 
 // Начальные значения 
 const movieCatalogInitValue = {
-    selectorOpened: true,
     isLoading: false,
     isRequested: false,
 
@@ -29,10 +28,6 @@ export default function Context ({children}){
     const [appValue, dispatcher] = useReducer(mainReducer, movieCatalogInitValue);
 
     // Добавление функций для работы с состояниями в редьюсер
-    appValue.toggleSelectMovies = () => {
-        dispatcher({type: "TOGGLE_SELECT_MOVIES"});
-    }
-
     appValue.setMovieData = data => {
         dispatcher({type: "SET_MOVIE_DATA", payload: data});
     }
