@@ -2,8 +2,11 @@ import { useContext, useEffect } from "react";
 import { moviesContext } from "../../utils/context";
 
 export default function Modal(){
+
+    // Состояния
     const {modalMessage, setModalMessage} = useContext(moviesContext);
 
+    // Работа с таймаутом
     useEffect(() => {
         const timer = setInterval(() => {
             setModalMessage('');
