@@ -563,7 +563,9 @@ footer{
   flex-direction: column;
   gap: 1.5rem;
 }
-
+.movie-info-poster{
+  max-width: 300px;
+}
 .movie-ratings{
   border-collapse: collapse;
 }
@@ -594,7 +596,7 @@ footer{
 
 .movie-info-controls{
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   display: flex;
   gap: 0.5rem;

@@ -74,8 +74,12 @@
     }
 
     /* Подробная информация о фильме */
+    
     .movie-info-cotainer{
         flex-direction: column;
+    }
+    .movie-info-poster{
+        max-width: 100%;
     }
     .movie-info-controls{
         position: relative;
