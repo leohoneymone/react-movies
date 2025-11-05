@@ -23,7 +23,8 @@ export default function MovieInfoPage() {
     const {
         isLoading, setLoading,
         movieDetailedInfo, setMovieDetailedInfo,
-        modalMessage, setModalMessage
+        modalMessage, setModalMessage,
+        movieWatchList, addMovieToWatchList
     } = useContext(moviesContext);
  
     // Загрузка компонента
@@ -56,6 +57,26 @@ export default function MovieInfoPage() {
     const handleClipboard = () => {
         navigator.clipboard.writeText(pathname);
         setModalMessage('URL copied to clipboard');
+    }
+
+    // Добавление в список для просмотра
+    const handleAddToWatchList = () => {
+        if (movieWatchList.find(item => item.id === movieDetailedInfo.imdbID)){
+            setModalMessage(`${movieDetailedInfo.Title} is already in Watch list`);
+            return;
+        }
+
+        const runtime = movieDetailedInfo.Runtime !== "N/A" ? +movieDetailedInfo.Runtime.slice(0,3) : 0;
+        
+        addMovieToWatchList({
+            poster: movieDetailedInfo.Poster,
+            title: movieDetailedInfo.Title,
+            type: movieDetailedInfo.Type,
+            id: movieDetailedInfo.imdbID,
+            runtime: runtime
+        });
+
+        setModalMessage(`${movieDetailedInfo.Title} added to Watch List`);
     }
 
     // Деструктуризация
@@ -118,7 +139,9 @@ export default function MovieInfoPage() {
 
                         <div className="movie-info-controls">
                             <button className="share-btn" onClick={()=> {handleClipboard()}}>🔗 Share</button>
-                            <button className="add-btn">+ Add to Watch List</button>
+                            {movieWatchList.find(item => item.id === data.imdbID) 
+                                ? <button className="disabled-btn" disabled='true' >Already in Watch List</button>
+                                : <button className="add-btn" onClick={() => {handleAddToWatchList()}}>+ Add to Watch List</button>}
                             <button className="go-back-btn" onClick={() => {navigate(-1)}}>Go back</button>
                         </div>
                     </div>

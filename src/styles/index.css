@@ -685,6 +685,12 @@ footer{
   border: 0.5px solid var(--color-primary);
 }
 
+.movie-info-controls .disabled-btn{
+  pointer-events: none;
+  color: var(--color-border);
+  border: 0.5px solid var(--color-border);
+}
+
 .movie-info-title{
   font-size: 2.25rem;
 }

@@ -48,6 +48,21 @@ export const mainReducer = (state, {type, payload}) => {
         // Работа с модальным окноп
         case "SET_MODAL_MESSAGE":
             return {...state, modalMessage: payload}
+
+        // Добавление фильма в список для просмотра
+        case "ADD_TO_WATCH_LIST":            
+            return {...state,
+                movieWatchList: [...state.movieWatchList, {
+                    poster: payload.poster,
+                    title: payload.title,
+                    type: payload.type,
+                    id: payload.id,
+                    runtime: payload.runtime,
+                    watched: false
+                }],
+                summaryRuntime: state.summaryRuntime + payload.runtime
+            }
+            
         // По умолчанию
         default: return state;
     }

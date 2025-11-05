@@ -9,16 +9,24 @@ export const TILES_PER_PAGE = 10;
 
 // Начальные значения 
 const movieCatalogInitValue = {
+    // Общий контекст для работы с данными
     modalMessage: '',
     isLoading: false,
     isRequested: false,
 
+    // Список фильмов
     data: [],
     page: 1,
     totalResults: 0,
     totalPages: 0,
     search: {},
 
+    // Список фильмов для просмотра
+    movieWatchList: [],
+    summaryRuntime: 0,
+    summaryWatchedRuntime: 0,
+
+    // Подробная информация о фильме
     movieDetailedInfo: {}
 }
 
@@ -67,6 +75,10 @@ export default function Context ({children}){
 
     appValue.setModalMessage = text => {
         dispatcher({type: "SET_MODAL_MESSAGE", payload: text});
+    }
+
+    appValue.addMovieToWatchList = data => {
+        dispatcher({type: "ADD_TO_WATCH_LIST", payload: data});
     }
 
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 
