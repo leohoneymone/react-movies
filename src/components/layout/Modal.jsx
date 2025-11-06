@@ -8,12 +8,12 @@ export default function Modal(){
 
     // Работа с таймаутом
     useEffect(() => {
-        const timer = setInterval(() => {
+        const timer = setTimeout(() => {
             setModalMessage('');
         }, 2000);
 
         return () => {
-            clearInterval(timer);
+            setTimeout(timer);
         }
     }, []);
 
