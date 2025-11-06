@@ -4,13 +4,14 @@ import { moviesContext } from "../utils/context";
 import { convertTime } from "../utils/api";
 
 import WatchListItem from "../components/WatchListItem";
+import { InitPlaceholder } from "../components/layout/Placeholders";
 
 export default function WatchListPage(){
     // Состояния
     const {movieWatchList, summaryRuntime, summaryWatchedRuntime} = useContext(moviesContext);
     
     return <div className="content-block full-sized-block watch-list-block">
-        <h2 className="watch-list-title">Your Watch List:</h2>
+        {movieWatchList.length ? <><h2 className="watch-list-title">Your Watch List:</h2>
         <div className="watch-list-content">
             {movieWatchList.map(item => !item.watched ? <WatchListItem key={item.id} {...item}/> : null)}
             <p className="watch-list-summary">Summary movie runtime: {convertTime(summaryRuntime)}</p>
@@ -19,6 +20,6 @@ export default function WatchListPage(){
         <div className="watch-list-content">
             {movieWatchList.map(item => item.watched ? <WatchListItem key={item.id} {...item}/> : null)}
             <p className="watch-list-summary">Total time watched: {convertTime(0)}</p>
-        </div>
+        </div></> : <InitPlaceholder isWatchList={true} />}
     </div>
 }

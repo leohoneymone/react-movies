@@ -3,10 +3,10 @@ import initImg from '../../assets/init-placeholder-img.png';
 import notFoundImg from '../../assets/not-found-image.png';
 
 // Начальный плейсхолдер 
-export function InitPlaceholder() {
+export function InitPlaceholder({isWatchList = false}) {
     return <div className="loading-and-placeholder-block">
         <img src={initImg} alt="initImg" className='placeholder-image'/>
-        <p>There will be movies you'll find</p>
+        <p>{isWatchList ? "Nothing here yet. Add movies to the list" : "There will be movies you'll find"}</p>
     </div>
 }
 
@@ -25,3 +25,4 @@ export function NotFoundPlaceholder({name}) {
         <p>Nothing found by "{name}" request</p>
     </div>
 }
+
