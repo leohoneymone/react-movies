@@ -1,4 +1,4 @@
-import avatar from '../utils/avatar.jpg';
+import avatar from '../assets/avatar.jpg';
 
 export default function AboutPage() {
     return <div className="content-block full-sized-block about-block">
@@ -40,15 +40,15 @@ export default function AboutPage() {
                         I tried to put as many functions as I can to create really impressive SPA and I think I have maxxed out API's possibilities. :)
                     </span>
                 </div>
-                <p className='author-socials'>Socials: <a href="https://github.com/leohoneymone" target='_blank' rel='norefferer'>GitHub</a></p>
+                <p className='author-socials'>Socials: <a href="https://github.com/leohoneymone" target='_blank' rel='noreferrer'>GitHub</a></p>
             </div>
         </div>
         {/* Ссылки на источники */}
         <h2 id="References">References</h2>
         <ul className='reference-list'>
-            <li><a href="https://github.com/leohoneymone" target='_blank' rel='norefferer'>GitHub</a></li>
-            <li><a href="https://github.com/leohoneymone/react-movies" target='_blank' rel='norefferer'>Repository</a></li>
-            <li><a href="https://www.omdbapi.com" target='_blank' rel='norefferer'>OMDb API</a></li>
+            <li><a href="https://github.com/leohoneymone" target='_blank' rel='noreferrer'>GitHub</a></li>
+            <li><a href="https://github.com/leohoneymone/react-movies" target='_blank' rel='noreferrer'>Repository</a></li>
+            <li><a href="https://www.omdbapi.com" target='_blank' rel='noreferrer'>OMDb API</a></li>
         </ul>
     </div>
 }

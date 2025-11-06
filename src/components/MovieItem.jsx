@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import noImagePlaceholder from '../utils/tile-no-image.png';
+import noImagePlaceholder from '../assets/tile-no-image.png';
 
 export default function MovieItem(props) {
     const {imdbID, Title, Year, Type, Poster} = props;

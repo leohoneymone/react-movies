@@ -1,6 +1,6 @@
-import loadingImg from '../../utils/spin-loading.png';
-import initImg from '../../utils/init-placeholder-img.png';
-import notFoundImg from '../../utils/not-found-image.png';
+import loadingImg from '../../assets/spin-loading.png';
+import initImg from '../../assets/init-placeholder-img.png';
+import notFoundImg from '../../assets/not-found-image.png';
 
 // Начальный плейсхолдер 
 export function InitPlaceholder() {

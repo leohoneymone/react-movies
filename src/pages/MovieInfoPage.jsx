@@ -5,7 +5,7 @@ import { useParams, useNavigate, useLocation} from "react-router-dom";
 
 import { omdbApiRequest } from "../utils/api";
 import { LoadingPlaceholder } from "../components/layout/Placeholders";
-import noImagePlaceholder from '../utils/tile-no-image.png';
+import noImagePlaceholder from '../assets/tile-no-image.png';
 
 import Modal from "../components/layout/Modal";
 
