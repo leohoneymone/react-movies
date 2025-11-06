@@ -15,6 +15,7 @@ export default function Modal(){
         return () => {
             setTimeout(timer);
         }
+    // eslint-disable-next-line
     }, []);
 
     return <div className="modal-window">
