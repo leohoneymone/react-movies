@@ -42,7 +42,9 @@ export default function MovieItem(props) {
             <p className="movie-year">{Year} / {Type}</p>
             <div className="movie-item-controls">
                 <Link to={`/movie/${imdbID}`} className="info-btn">Detailed Info</Link>
-                {movieWatchList.find(item => item.id === imdbID) ? null : <button className="add-btn" onClick={() => {handleAddToWatchList()}}>+ Add to Watch List</button>}
+                {movieWatchList.find(item => item.id === imdbID) 
+                    ? <button className="disabled-btn" disabled={true}>Already in Watch List</button>
+                    : <button className="add-btn" onClick={() => {handleAddToWatchList()}}>+ Add to Watch List</button>}
             </div>
         </div>
     </div>

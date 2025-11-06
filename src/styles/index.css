@@ -568,6 +568,12 @@ footer{
   border: 0.5px solid var(--color-add);
 }
 
+.movie-item-controls .disabled-btn{
+  pointer-events: none;
+  color: var(--color-border);
+  border: 0.5px solid var(--color-border);
+}
+
 /* Стили для пагинатора */
 .pagination-button{
   height: 25px;
