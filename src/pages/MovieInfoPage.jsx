@@ -3,7 +3,7 @@ import { moviesContext } from "../utils/context";
 
 import { useParams, useNavigate, useLocation} from "react-router-dom";
 
-import { omdbApiRequest } from "../utils/api";
+import { omdbApiRequest, convertTime } from "../utils/api";
 import { LoadingPlaceholder } from "../components/layout/Placeholders";
 import noImagePlaceholder from '../assets/tile-no-image.png';
 
@@ -115,7 +115,7 @@ export default function MovieInfoPage() {
                         <h1 className="movie-info-title">{data.Title}</h1>
                         <p className="movie-info-trivia">{data.Year} / <span className="trivia-type">{data.Type}</span> / {data.Genre}</p>
                         <p className="movie-info-trivia">{data.Country} / {data.Language}</p>
-                        <p className="movie-info-runtime">Runtime: {data.Runtime}</p>
+                        <p className="movie-info-runtime">Runtime: {convertTime(+data.Runtime.slice(0, 3))}</p>
                         {data.Rated !== "N/A" ? <p className="pegi-rated">{data.Rated}</p> : null}
 
                         <table className="movie-info-creators">

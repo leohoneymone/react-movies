@@ -5,8 +5,6 @@ import { convertTime } from "../utils/api";
 
 import WatchListItem from "../components/WatchListItem";
 
-// <p>Summary movie runtime: {convertTime(summaryRuntime)}</p>
-
 export default function WatchListPage(){
     // Состояния
     const {movieWatchList, summaryRuntime, summaryWatchedRuntime} = useContext(moviesContext);
