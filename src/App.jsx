@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Context from "./utils/context";
+import Content from "./components/layout/Content";
 
 // Страницы
 import MoviesPage from "./pages/MoviesPage";
@@ -21,7 +22,7 @@ export default function App () {
         <BrowserRouter>
             <Header />
             <Context>
-                <div className="content">
+                <Content>
                     <Routes>
                         <Route path="/" element={<MoviesPage />}/>
                         <Route path="/about" element={<AboutPage />}/>
@@ -29,7 +30,7 @@ export default function App () {
                         <Route path="/watch-list" element={<WatchListPage />}/>
                         <Route path="*" element={<NotFoundPage />}/>
                     </Routes>
-                </div>
+                    </Content>
             </Context>
             <Footer/>
         </BrowserRouter>

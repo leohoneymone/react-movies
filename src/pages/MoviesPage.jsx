@@ -11,6 +11,5 @@ export default function MoviesPage() {
     return <>
         <MovieSelect />
         <MovieList />
-        {modalMessage ? <Modal /> : null}
     </>
 }

@@ -7,8 +7,6 @@ import { omdbApiRequest, convertTime } from "../utils/api";
 import { LoadingPlaceholder } from "../components/layout/Placeholders";
 import noImagePlaceholder from '../assets/tile-no-image.png';
 
-import Modal from "../components/layout/Modal";
-
 export default function MovieInfoPage() {
     // Чтение imdbId из URL
     const movieId = useParams().id;
@@ -21,9 +19,8 @@ export default function MovieInfoPage() {
 
     // Состояния
     const {
-        isLoading, setLoading,
-        movieDetailedInfo, setMovieDetailedInfo,
-        modalMessage, setModalMessage,
+        isLoading, setLoading, setModalMessage,
+        movieDetailedInfo, setMovieDetailedInfo, 
         movieWatchList, addMovieToWatchList
     } = useContext(moviesContext);
  
@@ -149,7 +146,6 @@ export default function MovieInfoPage() {
             : <></> 
         }</>
         }
-        {modalMessage ? <Modal /> : null}
     </div>
 
 }

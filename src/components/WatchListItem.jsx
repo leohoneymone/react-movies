@@ -3,7 +3,6 @@ import { moviesContext } from '../utils/context';
 
 import { Link } from 'react-router-dom';
 import { convertTime } from '../utils/api';
-import Modal from './layout/Modal';
 import noImagePlaceholder from '../assets/tile-no-image.png';
 
 export default function WatchListItem(props){
@@ -11,7 +10,7 @@ export default function WatchListItem(props){
     const {poster, title, id, runtime, type, watched} = props;
 
     // Состояния
-    const {removeFromWatchList, modalMessage, setModalMessage,} = useContext(moviesContext);
+    const {removeFromWatchList, setModalMessage} = useContext(moviesContext);
 
     // Удаление фильма из списка для просмотра
     const handleRemove = () => {
@@ -33,7 +32,6 @@ export default function WatchListItem(props){
             </label>
             <span className="remove-btn" title='Remove movie from Watch List' onClick={() => {handleRemove()}}>❌</span>
         </div>
-        {modalMessage ? <Modal /> : null}
     </div>
 }
 
