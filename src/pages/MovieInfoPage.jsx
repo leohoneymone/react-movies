@@ -137,7 +137,7 @@ export default function MovieInfoPage() {
                         <div className="movie-info-controls">
                             <button className="share-btn" onClick={()=> {handleClipboard()}}>🔗 Share</button>
                             {movieWatchList.find(item => item.id === data.imdbID) 
-                                ? <button className="disabled-btn" disabled='true' >Already in Watch List</button>
+                                ? <button className="disabled-btn" disabled={true}>Already in Watch List</button>
                                 : <button className="add-btn" onClick={() => {handleAddToWatchList()}}>+ Add to Watch List</button>}
                             <button className="go-back-btn" onClick={() => {navigate(-1)}}>Go back</button>
                         </div>
