@@ -14,12 +14,12 @@ export default function WatchListPage(){
         {movieWatchList.length ? <><h2 className="watch-list-title">Your Watch List:</h2>
         <div className="watch-list-content">
             {movieWatchList.map(item => !item.watched ? <WatchListItem key={item.id} {...item}/> : null)}
-            <p className="watch-list-summary">Summary movie runtime: {convertTime(summaryRuntime)}</p>
+            <p className="watch-list-summary">Summary movie runtime: {convertTime(summaryRuntime) || 'No runtime information'}</p>
         </div>
         <h2 className="watch-list-title watch-list-completed">Already watched:</h2>
         <div className="watch-list-content">
             {movieWatchList.map(item => item.watched ? <WatchListItem key={item.id} {...item}/> : null)}
-            <p className="watch-list-summary">Total time watched: {convertTime(0)}</p>
+            <p className="watch-list-summary">Total time watched: {convertTime(0)  || 'No runtime information'}</p>
         </div></> : <InitPlaceholder isWatchList={true} />}
     </div>
 }

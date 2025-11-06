@@ -22,7 +22,7 @@ export default function WatchListItem(props){
         <img src={poster} alt={title} onError={e => {e.target.src = noImagePlaceholder}} className={`watch-list-poster`}/>
         <div className={`watch-list-text ${watched ? "completed" : ""}`}>
             <h3>{title}</h3>
-            <p>{type} / {convertTime(runtime)}</p>
+            <p>{type} / {convertTime(runtime) || 'No runtime information'}</p>
         </div>
         <div className="watch-list-controls">
             <Link to={`/movie/${id}`} className="watch-list-info-btn">Detailed Info</Link>
