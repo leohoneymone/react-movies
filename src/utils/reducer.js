@@ -62,7 +62,15 @@ export const mainReducer = (state, {type, payload}) => {
                 }],
                 summaryRuntime: state.summaryRuntime + payload.runtime
             }
-            
+        
+        // Удаление фильма из списка для просмотра
+        case "REMOVE_FROM_WATCH_LIST":
+            return{...state,
+                movieWatchList: [...state.movieWatchList.filter(item => item.id !== payload[0])],
+                summaryRuntime: state.summaryRuntime - payload[1]
+            }
+
+
         // По умолчанию
         default: return state;
     }

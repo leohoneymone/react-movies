@@ -81,5 +81,9 @@ export default function Context ({children}){
         dispatcher({type: "ADD_TO_WATCH_LIST", payload: data});
     }
 
+    appValue.removeFromWatchList = (id, runtime) => {
+        dispatcher({type: "REMOVE_FROM_WATCH_LIST", payload: [id, runtime]});
+    }
+
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 
 }
