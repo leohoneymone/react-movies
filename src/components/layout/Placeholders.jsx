@@ -1,6 +1,7 @@
 import loadingImg from '../../assets/spin-loading.png';
 import initImg from '../../assets/init-placeholder-img.png';
 import notFoundImg from '../../assets/not-found-image.png';
+import allWatchedImg from '../../assets/all-watched-image.png'
 
 // Начальный плейсхолдер 
 export function InitPlaceholder({isWatchList = false}) {
@@ -26,3 +27,11 @@ export function NotFoundPlaceholder({name}) {
     </div>
 }
 
+
+// Плейсхолдер для пустого фрагмента списка фильма для просмотра
+export function AllWatchedPlaceholder() {
+    return <div className="loading-and-placeholder-block all-wathced-list">
+        <img src={allWatchedImg} alt="allWatchedImg" className='placeholder-image'/>
+        <p>You've watched everything from your list. Add new movies to it</p>
+    </div>
+}

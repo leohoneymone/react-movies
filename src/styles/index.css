@@ -783,6 +783,11 @@ footer{
   gap: 1rem;
 }
 
+.all-wathced-list{
+  height: auto;
+  padding: 2rem 0;
+}
+
 .wacth-list-item{
   display: flex;
   align-items: center;
