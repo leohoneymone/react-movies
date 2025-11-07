@@ -454,7 +454,7 @@ footer{
   font-size: 1.1rem;
 }
 
-.movie-list-clear-btn{
+.movie-list-clear-btn, .movie-list-share-btn{
   background: var(--color-secondary);
   border: 0.5px solid var(--color-border);
   border-radius: 0.3rem;
@@ -465,6 +465,16 @@ footer{
   transition: var(--transition-hover);
   font-size: 1rem;
   font-weight: bold;
+  margin-right: 1rem;
+}
+
+.movie-list-share-btn:hover{
+  transition: var(--transition-hover);
+  transform: translateY(-2px);
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  border: 0.5px solid var( --color-primary);
+
 }
 
 .movie-list-clear-btn:hover{

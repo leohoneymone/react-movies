@@ -11,7 +11,7 @@ import MovieItem from "./MovieItem";
 
 export default function MovieList() {
     // Работа с ссылками
-    const {pathname} = useLocation();
+    const location = useLocation();
     const navigate = useNavigate();
 
     // Состояния 
@@ -60,8 +60,14 @@ export default function MovieList() {
     // Обработка очистки контейнера
     const handleClearButton = () => {
         clearData();
-        navigate(pathname);
+        navigate(location.pathname);
         setModalMessage('Movie list cleared');
+    }
+
+    // Копирование ссылки в буфер обмена
+    const handleClipboard = () => {
+        navigator.clipboard.writeText(location.pathname + location.search);
+        setModalMessage('URL copied to clipboard');
     }
 
     return <div className="content-block movie-list-block">
@@ -73,7 +79,10 @@ export default function MovieList() {
                 </div>
                 {!isLoading ? <div className="movie-list-container"> {data.map(item => <MovieItem key={item.imdbID} {...item} />)} </div> : <LoadingPlaceholder />}
                 <div className="movie-list-controls">
-                    <button className="movie-list-clear-btn" onClick={() => {handleClearButton()}}>🗑️ Clear</button>
+                    <div>
+                        <button className="movie-list-clear-btn" onClick={() => {handleClearButton()}}>🗑️ Clear</button>
+                        <button className="movie-list-share-btn" onClick={()=> {handleClipboard()}}>🔗 Share</button>
+                    </div>
                     <Pagination />
                 </div>
             </>
