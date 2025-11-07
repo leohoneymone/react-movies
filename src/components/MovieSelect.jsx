@@ -64,7 +64,7 @@ export default  function MovieSelect() {
         <div className="select-block">
             <div className="select-form">
                 <label htmlFor="movie-searchbar">Search for movies:</label>
-                <input type="text" className="movie-searchbar" id="movie-searchbar" placeholder="e.g. Iron Man" ref={searchBarRef} autoComplete="off"/>
+                <input type="text" className="movie-searchbar" id="movie-searchbar" placeholder="e.g. Iron Man" ref={searchBarRef} autoComplete="off" onKeyDown={(e) => {if(e.key === 'Enter') {setParameters()}}}/>
                 <label htmlFor="select-type">Select type:</label>
                 <select name="select-type" id="select-type" className="select-type" ref={selectTypeRef}>
                     <option value="">All</option>
