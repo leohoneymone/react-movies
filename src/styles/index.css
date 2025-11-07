@@ -92,6 +92,24 @@ html {
   transition: var(--transition-hover);
 }
 
+.watch-list-link{
+  position: relative;
+}
+
+.watch-list-link-quantity{
+  position:absolute; 
+  font-size: 0.8rem;
+  font-weight: bold;
+  top: -16px;
+  height: 16px;
+  min-width: 16px;
+  padding: 0 3px;
+  z-index: 10;
+  background: var(--color-remove);
+  text-align: center;
+  border-radius: 3px;
+}
+
 .content{
   grid-row: 2 / 3;
   grid-column:  2 / 3;

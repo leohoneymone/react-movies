@@ -20,8 +20,8 @@ const APIKEY = process.env.REACT_APP_APIKEY;
 export default function App () {
     return <div className="wrap">
         <BrowserRouter>
-            <Header />
             <Context>
+                <Header />
                 <Content>
                     <Routes>
                         <Route path="/" element={<MoviesPage />}/>
