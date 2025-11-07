@@ -10,12 +10,23 @@ export default function WatchListItem(props){
     const {poster, title, id, runtime, type, watched} = props;
 
     // Состояния
-    const {removeFromWatchList, setModalMessage} = useContext(moviesContext);
+    const {removeFromWatchList, setModalMessage, setWatched, unsetWatched} = useContext(moviesContext);
 
     // Удаление фильма из списка для просмотра
     const handleRemove = () => {
         removeFromWatchList(id, runtime);
-        setModalMessage(`${title} removed from Watch List`);
+        setModalMessage(`${title} was removed from Watch List`);
+    }
+
+    // Обработка просмотра фильма
+    const handleWatched = () => {
+        if (watched) {
+            unsetWatched(id);
+            setModalMessage(`${title} removed from watched section`);
+            return;
+        }
+        setModalMessage(`Congratulations! You've watched ${title}!`);
+        setWatched(id);
     }
 
     return <div className={`wacth-list-item ${watched ? "completed" : ""}`}>
@@ -27,7 +38,7 @@ export default function WatchListItem(props){
         <div className="watch-list-controls">
             <Link to={`/movie/${id}`} className="watch-list-info-btn">Detailed Info</Link>
             <label htmlFor={`check-watched-${id}`}>
-                <input type="checkbox" name={`check-watched-${id}`} id={`check-watched-${id}`} checked={watched} className='movie-watched-checkbox'/>
+                <input type="checkbox" name={`check-watched-${id}`} id={`check-watched-${id}`} checked={watched} onChange={()=>{handleWatched()}} className='movie-watched-checkbox'/>
                 {watched ? "Unmark wacthed" : "Mark as watched"}
             </label>
             <span className="remove-btn" title='Remove movie from Watch List' onClick={() => {handleRemove()}}>❌</span>

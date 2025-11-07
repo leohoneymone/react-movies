@@ -64,12 +64,21 @@ export const mainReducer = (state, {type, payload}) => {
         
         // Удаление фильма из списка для просмотра
         case "REMOVE_FROM_WATCH_LIST":
-            return{...state, movieWatchList: [...state.movieWatchList.filter(item => item.id !== payload[0])]}
+            return{...state, movieWatchList: [...state.movieWatchList.filter(item => item.id !== payload)]}
 
-        // Расчёт суммарного времени просмотра фильмов в списке пользователя
+        // Установка фильма как просмотренного
+        case "SET_WATCHED":
+            return{...state, movieWatchList: state.movieWatchList.map(item => item.id === payload ? {...item, watched: true} : item)}
+
+        // Удаление фильма из просмотренного
+        case "UNSET_WATCHED":
+            return{...state, movieWatchList: state.movieWatchList.map(item => item.id === payload ? {...item, watched: false} : item)}
+
+        // Расчёт суммарного времени просмотра фильмов и уже просмотренных фильмов в списке пользователя  
         case "CALCULATE_RUNTIME":
             return {...state,
-                summaryRuntime: state.movieWatchList.length ? state.movieWatchList.reduce((sum, val) => sum + val.runtime, 0) : 0
+                summaryRuntime: state.movieWatchList.length ? state.movieWatchList.reduce((sum, val) => val.watched ? sum : sum + val.runtime, 0) : 0,
+                summaryWatchedRuntime: state.movieWatchList.length ? state.movieWatchList.reduce((sum, val) => val.watched ? sum + val.runtime : sum, 0) : 0
             }
 
         // По умолчанию

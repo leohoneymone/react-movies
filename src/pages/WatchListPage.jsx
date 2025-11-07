@@ -20,7 +20,7 @@ export default function WatchListPage(){
             <h2 className="watch-list-title watch-list-completed">Already watched:</h2>
             <div className="watch-list-content">
                 {movieWatchList.map(item => item.watched ? <WatchListItem key={item.id} {...item}/> : null)}
-                <p className="watch-list-summary">Total time watched: {convertTime(0)  || 'No runtime information'}</p>
+                <p className="watch-list-summary">Total time watched: {convertTime(summaryWatchedRuntime)  || 'No runtime information'}</p>
             </div>
         </> : null}
         </> : <InitPlaceholder isWatchList={true} />}
