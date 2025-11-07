@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { mainReducer } from "./reducer";
 
 // Контекст
@@ -21,10 +21,10 @@ const movieCatalogInitValue = {
     totalPages: 0,
     search: {},
 
-    // Список фильмов для просмотра
-    movieWatchList: [],
-    summaryRuntime: 0,
-    summaryWatchedRuntime: 0,
+    // Список фильмов для просмотра + расчёт времени просмотра (используют localStorage)
+    movieWatchList: JSON.parse(localStorage.getItem('movieWatchList')) || [],
+    summaryRuntime: +localStorage.getItem('summaryRuntime') || 0,
+    summaryWatchedRuntime: +localStorage.getItem('summaryWatchedRuntime') || 0,
 
     // Подробная информация о фильме
     movieDetailedInfo: {}
@@ -35,6 +35,12 @@ export default function Context ({children}){
 
     // Инициализация редьюсера
     const [appValue, dispatcher] = useReducer(mainReducer, movieCatalogInitValue);
+
+    // Эффекты для сохранения полей в localStorage
+    const {movieWatchList, summaryRuntime, summaryWatchedRuntime} = appValue;
+    useEffect(() => {localStorage.setItem('movieWatchList', JSON.stringify(movieWatchList))}, [movieWatchList]);
+    useEffect(() => {localStorage.setItem('movieWatchList', summaryRuntime)}, [summaryRuntime]);
+    useEffect(() => {localStorage.setItem('movieWatchList', summaryWatchedRuntime)}, [summaryWatchedRuntime]);
 
     // Добавление функций для работы с состояниями в редьюсер
     appValue.setMovieData = data => {
