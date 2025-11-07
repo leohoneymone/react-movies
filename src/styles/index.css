@@ -840,6 +840,7 @@ label:has(.movie-watched-checkbox){
   color: var(--color-primary);
   padding: 0.3rem 0.5rem;
   border-radius: 0.3rem;
+  background: var(--color-tiles);
   border: 0.5px solid var(--color-border);
   cursor: pointer;
   transition: var(--transition-hover);
