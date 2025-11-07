@@ -5,6 +5,8 @@ import { moviesContext } from "../../utils/context"
 export default function Header(){
     const {movieWatchList} = useContext(moviesContext);
 
+    const movieQuantity = movieWatchList.filter(item => !item.watched).length;
+
     return <div className="header">
         <div className="header-content">
             <Link to="/" className="header-title-link">Movie Catalog</Link>
@@ -12,7 +14,7 @@ export default function Header(){
             <nav className="header-nav">
                 <Link to="/watch-list" className="watch-list-link">
                     Your Watch List
-                    {movieWatchList.length ? <span className="watch-list-link-quantity">{movieWatchList.length}</span>: null}
+                    {movieQuantity ? <span className="watch-list-link-quantity">{movieQuantity}</span>: null}
                 </Link>
                 <Link to="/about">About App</Link>
             </nav>
