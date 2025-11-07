@@ -61,6 +61,17 @@
         flex-direction: column-reverse;
         align-items: end;
     }
+    .movie-list-share-btn{
+        display: none;
+    }
+
+    .placeholder-image{
+        width: 200px;
+    }
+    .loading-and-placeholder-block > p {
+        font-size: 1.2rem;
+        padding: 0 10%;
+    }
 
     /* Тайл с информацией о фильме */
     .moive-item-tile{
@@ -74,7 +85,6 @@
     }
 
     /* Подробная информация о фильме */
-    
     .movie-info-cotainer{
         flex-direction: column;
     }
@@ -88,5 +98,31 @@
         vertical-align: top;
         text-align: justify;
         padding-bottom: 0.5rem;
+    }
+    .movie-info-controls .share-btn{
+        display: none;
+    }
+
+    /* Список фильмов для просмотра */
+    .wacth-list-item{
+        height: auto;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    .watch-list-text{
+        font-size: 0.9rem;
+    }
+    .watch-list-controls{
+        padding: 0;
+        width: 100%;
+        justify-content: space-between;
+        gap:1.5rem;
+        font-size: 0.9rem;
+    }
+    .watch-list-controls > .remove-btn{
+        font-size: 1rem;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
     }
 }

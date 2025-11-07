@@ -465,7 +465,10 @@ footer{
   transition: var(--transition-hover);
   font-size: 1rem;
   font-weight: bold;
-  margin-right: 1rem;
+}
+
+.movie-list-share-btn{
+  margin-left: 1rem;
 }
 
 .movie-list-share-btn:hover{
@@ -509,6 +512,7 @@ footer{
 .loading-and-placeholder-block > p {
   font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
   color: #333;
 }
 
@@ -882,7 +886,6 @@ label:has(.movie-watched-checkbox){
 
 .watch-list-text.completed{
   color: #888;
-
 }
 
 
