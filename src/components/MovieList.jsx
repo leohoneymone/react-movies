@@ -66,7 +66,7 @@ export default function MovieList() {
 
     // Копирование ссылки в буфер обмена
     const handleClipboard = () => {
-        navigator.clipboard.writeText(CATALOG_BASE_URL + location.pathname + location.search);
+        navigator.clipboard.writeText(CATALOG_BASE_URL + '/#' + location.pathname + location.search);
         setModalMessage('URL copied to clipboard');
     }
 

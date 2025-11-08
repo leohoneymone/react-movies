@@ -52,7 +52,7 @@ export default function MovieInfoPage() {
 
     // Копирование в буфер обмена
     const handleClipboard = () => {
-        navigator.clipboard.writeText(CATALOG_BASE_URL + pathname);
+        navigator.clipboard.writeText(CATALOG_BASE_URL + '/#' + pathname);
         setModalMessage('URL copied to clipboard');
     }
 
