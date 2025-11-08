@@ -229,7 +229,7 @@ footer{
   text-align: center;
 }
 
-.about-block > h2{
+.about-block > h2:not(:first-of-type){
   padding-left: 1rem;
 }
 

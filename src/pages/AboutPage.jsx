@@ -2,7 +2,7 @@ import avatar from '../assets/avatar.jpg';
 
 export default function AboutPage() {
     return <div className="content-block full-sized-block about-block">
-        <h1 title='about-title'>About Movie Catalog</h1>
+        <h2>About Movie Catalog</h2>
         <nav className="about-navigation">
             <a href="#Description">Description</a>
             <a href="#Author">Author</a>
@@ -36,8 +36,8 @@ export default function AboutPage() {
                 <div className="citation-box">
                     <span className="citation">
                         This is my first React pet project. I made a huge effort to put all of my knowledge about components, hooks and their interactions. 
-                        I am not using state here just for showcasing my abilities to create logic using context + reducer as well as custom hooks espessially for localStorage management.
-                        I tried to put as many functions as I can to create really impressive SPA and I think I have maxxed out API's possibilities. :)
+                        I am not using state here just for showcasing my abilities to create logic using context + reducer as well as some complex JS functions for tasks such as localStorage management.
+                        I tried to put as many functionalities as I can to create really impressive SPA and I think I have maxxed out API's possibilities. :)
                     </span>
                 </div>
                 <p className='author-socials'>Socials: <a href="https://github.com/leohoneymone" target='_blank' rel='noreferrer'>GitHub</a></p>
