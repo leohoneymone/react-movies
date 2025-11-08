@@ -21,7 +21,7 @@
 - Управлять фильмами в списке - удалять, отмечать как просмотренные, добавлять новые и получать информацию о суммарном времени просмотренных фильмов
 - Делиться информацией о фильмах и результатах поиска с помощью URL (реализовано через `Clipboard API`)
 
-Демоверсия каталога:
+Демоверсия каталога: [https://leohoneymone.github.io/react-movies](https://leohoneymone.github.io/react-movies)
 
 ---
 
@@ -42,5 +42,5 @@ Movie catalog allows it's users to:
 - Control watch list - remove movies, mark as wathced, add new and get summary watched runtime information
 - Share movie info or selection via URL (using `Clipboard API`)
 
-Catalog Demo:
+Catalog Demo: [https://leohoneymone.github.io/react-movies](https://leohoneymone.github.io/react-movies)
 
