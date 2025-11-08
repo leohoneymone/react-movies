@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { moviesContext } from "../utils/context";
+import { moviesContext, CATALOG_BASE_URL } from "../utils/context";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -66,7 +66,7 @@ export default function MovieList() {
 
     // Копирование ссылки в буфер обмена
     const handleClipboard = () => {
-        navigator.clipboard.writeText(location.pathname + location.search);
+        navigator.clipboard.writeText(CATALOG_BASE_URL + location.pathname + location.search);
         setModalMessage('URL copied to clipboard');
     }
 

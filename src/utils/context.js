@@ -4,8 +4,8 @@ import { mainReducer } from "./reducer";
 // Контекст
 export const moviesContext =  createContext();
 
-// По 10 записей на страницу (ограничение API)
-export const TILES_PER_PAGE = 10;
+// Базовый URL приложения
+export const CATALOG_BASE_URL = 'https://leohoneymone.github.io/react-movies';
 
 // Начальные значения 
 const movieCatalogInitValue = {

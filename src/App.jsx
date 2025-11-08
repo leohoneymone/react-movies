@@ -1,5 +1,5 @@
 // Зависимости
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 // Компоненты
 import Footer from "./components/layout/Footer";
@@ -19,7 +19,7 @@ const APIKEY = process.env.REACT_APP_APIKEY;
 
 export default function App () {
     return <div className="wrap">
-        <BrowserRouter basename="/react-movies">
+        <HashRouter>
             <Context>
                 <Header />
                 <Content>
@@ -33,6 +33,6 @@ export default function App () {
                     </Content>
             </Context>
             <Footer/>
-        </BrowserRouter>
+        </HashRouter>
     </div>
 }

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { moviesContext } from "../utils/context";
+import { moviesContext, CATALOG_BASE_URL } from "../utils/context";
 
 import { useParams, useNavigate, useLocation} from "react-router-dom";
 
@@ -52,7 +52,7 @@ export default function MovieInfoPage() {
 
     // Копирование в буфер обмена
     const handleClipboard = () => {
-        navigator.clipboard.writeText(pathname);
+        navigator.clipboard.writeText(CATALOG_BASE_URL + pathname);
         setModalMessage('URL copied to clipboard');
     }
 
