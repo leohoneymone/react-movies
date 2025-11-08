@@ -516,6 +516,10 @@ footer{
   color: #333;
 }
 
+.loading-and-placeholder-block:has(.loading-animated){
+  padding: 30%;
+}
+
 .loading-animated{
   animation: loading-placeholder-spin 2s ease-in-out infinite; 
 }
