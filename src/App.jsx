@@ -19,7 +19,7 @@ const APIKEY = process.env.REACT_APP_APIKEY;
 
 export default function App () {
     return <div className="wrap">
-        <BrowserRouter>
+        <BrowserRouter basename="/react-movies">
             <Context>
                 <Header />
                 <Content>
