@@ -37,9 +37,9 @@ export default function Context ({children}){
     const [appValue, dispatcher] = useReducer(mainReducer, movieCatalogInitValue);
 
     // Эффекты для обработки времени просмотра сохранения полей в localStorage
-    const {movieWatchList, calculateRuntime} = appValue;
+    const {movieWatchList} = appValue;
     useEffect(() => {
-        calculateRuntime();
+        dispatcher({type: 'CALCULATE_RUNTIME'});
         localStorage.setItem('movieWatchList', JSON.stringify(movieWatchList));
     }, [movieWatchList]);
 
@@ -96,9 +96,6 @@ export default function Context ({children}){
     }
     appValue.unsetWatched = id => {
         dispatcher({type: "UNSET_WATCHED", payload: id});
-    }
-    appValue.calculateRuntime = () => {
-        dispatcher({type: 'CALCULATE_RUNTIME'});
     }
 
     return <moviesContext.Provider value={appValue}>{children}</moviesContext.Provider> 
